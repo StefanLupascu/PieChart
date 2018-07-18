@@ -15,13 +15,6 @@ class PieChartView: UIView {
     private var percentage: CGFloat = 0.75
     private var loadingCircle = CAShapeLayer()
     private var trackingCircle = CAShapeLayer()
-
-//    private let infoLabel: UILabel = {
-//        let label = UILabel()
-//        label.translatesAutoresizingMaskIntoConstraints = false
-//        label.numberOfLines = 2
-//        return label
-//    }()
     
     private let projectNumberLabel: UILabel = {
         let label = UILabel()
@@ -65,8 +58,6 @@ class PieChartView: UIView {
         draw(percentage: percentage)
         setupUI()
         animate()
-//        animateLoadingCircle()
-//        animateTrackingCircle()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -158,13 +149,6 @@ class PieChartView: UIView {
         projectNumberLabel.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -Padding.f5).isActive = true
         completedLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         completedLabel.centerYAnchor.constraint(equalTo: centerYAnchor, constant: Padding.f13).isActive = true
-        
-//        infoLabel.attributedText = LabelEditor.infoLabelText
-        
-//        addSubview(infoLabel)
-//        infoLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-//        infoLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        
     }
 
 }

@@ -17,14 +17,6 @@ class PieChartCollectionViewCell: UICollectionViewCell {
         pieChart.isUserInteractionEnabled = false
         return pieChart
     }()
-    
-//    private let projectLabel: UILabel = {
-//        let label = UILabel()
-//        label.translatesAutoresizingMaskIntoConstraints = false
-//        label.numberOfLines = 2
-//        label.textAlignment = .center
-//        return label
-//    }()
 
     private let codeLabel: UILabel = {
        let label = UILabel()
@@ -45,7 +37,6 @@ class PieChartCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
                 
-//        projectLabel.attributedText = LabelEditor.projectLabelText
         codeLabel.attributedText = LabelEditor.codeLabelText
         typeLabel.attributedText = LabelEditor.typeLabelText
         
@@ -64,7 +55,6 @@ class PieChartCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(pieChartView)
         contentView.addSubview(codeLabel)
         contentView.addSubview(typeLabel)
-//        contentView.addSubview(projectLabel)
         
         pieChartView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
         pieChartView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
@@ -76,9 +66,6 @@ class PieChartCollectionViewCell: UICollectionViewCell {
         
         typeLabel.topAnchor.constraint(equalTo: codeLabel.bottomAnchor, constant: -Padding.f3).isActive = true
         typeLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
-        
-//        projectLabel.topAnchor.constraint(equalTo: pieChartView.bottomAnchor, constant: -Padding.f10).isActive = true
-//        projectLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
     }
     
 }

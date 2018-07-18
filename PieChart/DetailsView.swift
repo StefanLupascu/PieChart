@@ -17,11 +17,17 @@ class DetailsView: UIView {
         pieChart.translatesAutoresizingMaskIntoConstraints = false
         return pieChart
     }()
-    
-    private let projectLabel: UILabel = {
+
+    private let codeLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 2
+        label.textAlignment = .center
+        return label
+    }()
+    
+    private let typeLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
         return label
     }()
@@ -29,7 +35,8 @@ class DetailsView: UIView {
     private let exportButton: UIButton = {
         let button = UIButton()
         button.setTitleColor(ColorEditor.exportButtonColor, for: .normal)
-        button.setTitle("Export to Sharepoint", for: .normal)
+        button.setAttributedTitle(NSAttributedString(string: "Export to Sharepoint", attributes: [.font: UIFont.boldSystemFont(ofSize: Padding.f18),
+                                                                                                  .foregroundColor: ColorEditor.loadingCircleColor]), for: .normal)
         button.backgroundColor = .clear
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.cornerRadius = Padding.f5
@@ -43,7 +50,9 @@ class DetailsView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        projectLabel.attributedText = LabelEditor.detailsViewProjectLabelText
+        codeLabel.attributedText = LabelEditor.detailsViewCodeLabelText
+        typeLabel.attributedText = LabelEditor.detailsViewTypeLabelText
+        
         setupViews()
     }
     
@@ -57,7 +66,8 @@ class DetailsView: UIView {
         backgroundColor = ColorEditor.whiteBackgroundColor
         
         addSubview(pieChartView)
-        addSubview(projectLabel)
+        addSubview(codeLabel)
+        addSubview(typeLabel)
         addSubview(exportButton)
 
         pieChartView.heightAnchor.constraint(equalToConstant: Padding.f175).isActive = true
@@ -65,12 +75,16 @@ class DetailsView: UIView {
         pieChartView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Padding.f100).isActive = true
         pieChartView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Padding.f100).isActive = true
         
-        projectLabel.topAnchor.constraint(equalTo: pieChartView.bottomAnchor, constant: Padding.f20).isActive = true
-        projectLabel.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        projectLabel.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        codeLabel.topAnchor.constraint(equalTo: pieChartView.bottomAnchor, constant: Padding.f10).isActive = true
+        codeLabel.leadingAnchor.constraint(equalTo: pieChartView.leadingAnchor).isActive = true
+        codeLabel.trailingAnchor.constraint(equalTo: pieChartView.trailingAnchor).isActive = true
 
+        typeLabel.topAnchor.constraint(equalTo: codeLabel.bottomAnchor, constant: -Padding.f5).isActive = true
+        typeLabel.leadingAnchor.constraint(equalTo: codeLabel.leadingAnchor).isActive = true
+        typeLabel.trailingAnchor.constraint(equalTo: codeLabel.trailingAnchor).isActive = true
+        
         exportButton.heightAnchor.constraint(equalToConstant: Padding.f60).isActive = true
-        exportButton.topAnchor.constraint(equalTo: projectLabel.bottomAnchor, constant: Padding.f30).isActive = true
+        exportButton.topAnchor.constraint(equalTo: typeLabel.bottomAnchor, constant: Padding.f30).isActive = true
         exportButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Padding.f20).isActive = true
         exportButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Padding.f20).isActive = true
         exportButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -Padding.f230).isActive = true
