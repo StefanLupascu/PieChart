@@ -12,14 +12,26 @@ class PieChartView: UIView {
 
     // MARK: - Properties
     
-    private var percentage: CGFloat = 0.50
+    private var percentage: CGFloat = 0.75
     private var loadingCircle = CAShapeLayer()
     private var trackingCircle = CAShapeLayer()
 
-    private let infoLabel: UILabel = {
+//    private let infoLabel: UILabel = {
+//        let label = UILabel()
+//        label.translatesAutoresizingMaskIntoConstraints = false
+//        label.numberOfLines = 2
+//        return label
+//    }()
+    
+    private let projectNumberLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 2
+        return label
+    }()
+    
+    private let completedLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
@@ -136,11 +148,23 @@ class PieChartView: UIView {
         layer.addSublayer(trackingCircle)
         layer.addSublayer(loadingCircle)
         
-        infoLabel.attributedText = LabelEditor.infoLabelText
+        projectNumberLabel.attributedText = LabelEditor.projectNumberLabelText
+        completedLabel.attributedText = LabelEditor.completedLabelText
         
-        addSubview(infoLabel)
-        infoLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        infoLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        addSubview(projectNumberLabel)
+        addSubview(completedLabel)
+        
+        projectNumberLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        projectNumberLabel.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -Padding.f5).isActive = true
+        completedLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        completedLabel.centerYAnchor.constraint(equalTo: centerYAnchor, constant: Padding.f13).isActive = true
+        
+//        infoLabel.attributedText = LabelEditor.infoLabelText
+        
+//        addSubview(infoLabel)
+//        infoLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+//        infoLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        
     }
 
 }

@@ -10,9 +10,12 @@ import UIKit
 
 struct Padding {
     static let f1: CGFloat = 1
+    static let f3: CGFloat = 3
     static let f5: CGFloat = 5
     static let f10: CGFloat = 10
     static let f11: CGFloat = 11
+    static let f13: CGFloat = 13
+    static let f15: CGFloat = 15
     static let f18: CGFloat = 18
     static let f20: CGFloat = 20
     static let f30: CGFloat = 30

@@ -18,10 +18,24 @@ class PieChartCollectionViewCell: UICollectionViewCell {
         return pieChart
     }()
     
-    private let projectLabel: UILabel = {
+//    private let projectLabel: UILabel = {
+//        let label = UILabel()
+//        label.translatesAutoresizingMaskIntoConstraints = false
+//        label.numberOfLines = 2
+//        label.textAlignment = .center
+//        return label
+//    }()
+
+    private let codeLabel: UILabel = {
+       let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textAlignment = .center
+        return label
+    }()
+    
+    private let typeLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 2
         label.textAlignment = .center
         return label
     }()
@@ -31,7 +45,10 @@ class PieChartCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
                 
-        projectLabel.attributedText = LabelEditor.projectLabelText
+//        projectLabel.attributedText = LabelEditor.projectLabelText
+        codeLabel.attributedText = LabelEditor.codeLabelText
+        typeLabel.attributedText = LabelEditor.typeLabelText
+        
         setupViews()
     }
     
@@ -45,15 +62,23 @@ class PieChartCollectionViewCell: UICollectionViewCell {
         backgroundColor = .clear
         
         contentView.addSubview(pieChartView)
-        contentView.addSubview(projectLabel)
+        contentView.addSubview(codeLabel)
+        contentView.addSubview(typeLabel)
+//        contentView.addSubview(projectLabel)
         
         pieChartView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
         pieChartView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
         pieChartView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
         pieChartView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
         
-        projectLabel.topAnchor.constraint(equalTo: pieChartView.bottomAnchor, constant: -Padding.f10).isActive = true
-        projectLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
+        codeLabel.topAnchor.constraint(equalTo: pieChartView.bottomAnchor, constant: -Padding.f10).isActive = true
+        codeLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
+        
+        typeLabel.topAnchor.constraint(equalTo: codeLabel.bottomAnchor, constant: -Padding.f3).isActive = true
+        typeLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
+        
+//        projectLabel.topAnchor.constraint(equalTo: pieChartView.bottomAnchor, constant: -Padding.f10).isActive = true
+//        projectLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
     }
     
 }
